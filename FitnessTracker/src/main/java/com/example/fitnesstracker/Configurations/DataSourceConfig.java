@@ -1,4 +1,4 @@
-package app.fitrvapp.config;
+package com.example.fitnesstracker.Configurations;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -29,4 +29,3 @@ public class DataSourceConfig {
         return dataSource;
     }
 }
-
