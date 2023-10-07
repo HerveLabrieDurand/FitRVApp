@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -30,7 +31,7 @@ public class TrainingLogEntry {
     private int reps;
 
     @Column(nullable = false, precision=6, scale=2)
-    private float weight;
+    private BigDecimal weight;
 
     @Column(nullable = false)
     private int intensity;
