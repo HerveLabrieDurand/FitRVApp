@@ -23,22 +23,6 @@ public class MuscleGroupService implements IMuscleGroupService {
         this.muscleGroupRepository = muscleGroupRepository;
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    public Optional<MuscleGroup> save(MuscleGroup entity) {
-        Optional<MuscleGroup> muscleGroupOptional = Optional.empty();
-        if (entity == null)
-            logger.log(Level.SEVERE, "entity must not be null");
-        else {
-            try {
-                muscleGroupOptional = Optional.ofNullable(muscleGroupRepository.save(entity));
-            } catch (DataAccessException e) {
-                logger.log(Level.SEVERE, "Failed to create muscle group by name: " + entity.getName());
-            }
-        }
-
-        return muscleGroupOptional;
-    }
-
     @Transactional(rollbackFor = Exception.class, readOnly = true)
     public Optional<MuscleGroup> findByName(String name) {
         Optional<MuscleGroup> muscleGroupOptional = Optional.empty();
@@ -69,34 +53,5 @@ public class MuscleGroupService implements IMuscleGroupService {
         }
 
         return muscleGroupOptional;
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    public void deleteById(Long id) {
-        if (id == null)
-            logger.log(Level.SEVERE, "id cannot be null");
-        else {
-            try {
-                muscleGroupRepository.deleteById(id);
-            } catch (DataAccessException e) {
-                logger.log(Level.SEVERE, "Failed to delete muscle group by id: " + id);
-            }
-        }
-    }
-
-    @Transactional(rollbackFor = Exception.class, readOnly = true)
-    public boolean existsById(Long id)  {
-        boolean exists = false;
-        if (id == null)
-            logger.log(Level.SEVERE, "id cannot be null");
-        else {
-            try {
-                exists = muscleGroupRepository.existsById(id);
-            } catch (DataAccessException e) {
-                logger.log(Level.SEVERE, "Failed to resolve the request: " + id);
-            }
-        }
-
-        return exists;
     }
 }
