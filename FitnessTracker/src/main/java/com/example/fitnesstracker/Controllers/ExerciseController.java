@@ -16,9 +16,9 @@ public class ExerciseController {
     private IExerciseService exerciseService;
 
     @PostMapping
-    public ResponseEntity<Exercise> createExercise(@RequestBody Exercise exercise) {
-        Optional<Exercise> exerciseOptional = exerciseService.save(exercise);
-        return exerciseOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
+    public ResponseEntity<Exercise> createExercise(@RequestBody Exercise _exercise) {
+        Exercise exercise = exerciseService.save(_exercise);
+        return ResponseEntity.ok(exercise);
     }
 
     @GetMapping("/name")

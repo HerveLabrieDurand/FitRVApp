@@ -7,10 +7,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "exercise", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "exercises", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class Exercise {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long exerciseId;
 
     @Column(nullable = false)

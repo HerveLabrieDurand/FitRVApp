@@ -10,18 +10,18 @@ import java.sql.Date;
 @Entity
 @Getter
 @Setter
-@Table(name = "training_log_entry")
+@Table(name = "training_log_entries")
 public class TrainingLogEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long trainingLogEntryId;
 
-    @ManyToOne
-    @JoinColumn(name="exerciseId", nullable=false)
+    @OneToOne
+    @JoinColumn(name="exercise_id", nullable=false)
     private Exercise exercise;
 
     @ManyToOne
-    @JoinColumn(name="trainingLogId", nullable=false)
+    @JoinColumn(name="training_log_id", nullable=false)
     private TrainingLog trainingLog;
 
     @Column(nullable = false)
@@ -35,6 +35,7 @@ public class TrainingLogEntry {
 
     @Column(nullable = false)
     private int intensity;
+
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;

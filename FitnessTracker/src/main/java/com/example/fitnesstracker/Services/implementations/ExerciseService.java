@@ -17,29 +17,28 @@ import java.util.logging.Logger;
 
 @Service
 public class ExerciseService implements IExerciseService {
-
-    @Autowired
     private final ExerciseRepository exerciseRepository;
     private final Logger logger = Logger.getLogger(ExerciseService.class.getName());
 
+    @Autowired
     public ExerciseService(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public Optional<Exercise> save(Exercise entity) {
-        Optional<Exercise> exerciseOptional = Optional.empty();
+    public Exercise save(Exercise entity) {
+        Exercise exercise = null;
         if (entity == null)
             logger.log(Level.SEVERE, "entity must not be null");
         else {
             try {
-                exerciseOptional = Optional.ofNullable(exerciseRepository.save(entity));
+                exercise = exerciseRepository.save(entity);
             } catch (DataAccessException e) {
                 logger.log(Level.SEVERE, "Failed to create exercise by name: " + entity.getName());
             }
         }
 
-        return exerciseOptional;
+        return exercise;
     }
 
     @Transactional(rollbackFor = Exception.class, readOnly = true)

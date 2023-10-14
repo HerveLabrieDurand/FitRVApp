@@ -14,11 +14,10 @@ import java.util.logging.Logger;
 
 @Service
 public class MainMuscleGroupService implements IMainMuscleGroupService {
-
-    @Autowired
     private final MainMuscleGroupRepository mainMuscleGroupRepository;
     private final Logger logger = Logger.getLogger(MainMuscleGroupService.class.getName());
 
+    @Autowired
     public MainMuscleGroupService(MainMuscleGroupRepository mainMuscleGroupRepository) {
         this.mainMuscleGroupRepository = mainMuscleGroupRepository;
     }
