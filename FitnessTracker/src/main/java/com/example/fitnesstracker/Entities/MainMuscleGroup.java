@@ -7,7 +7,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "main_muscle_group", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "main_muscle_groups", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class MainMuscleGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
