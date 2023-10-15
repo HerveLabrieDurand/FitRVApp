@@ -1,0 +1,34 @@
+.logo-container {
+  height: 90px; /* Set the height to match the toolbar's height */
+  padding-right: 15px;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* If you want to center vertically as well */
+  height: 100px;
+}
+
+.logo-image {
+  height: 100%; /* Make the logo fill the height of the container */
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+}
+
+.rows {
+  flex-direction: column;
+}
+
+.right-aligned {
+  margin-left: auto
+}
+
+.centered-row {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* If you want to center vertically as well */
+}

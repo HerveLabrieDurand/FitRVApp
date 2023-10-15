@@ -1,5 +1,18 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <h2>MyFitnessTracker</h2>
-  </mat-toolbar-row>
+      <mat-toolbar-row class="centered-row">
+        <div class="logo-container">
+          <img src="/assets/img/AiGeneratedGigaChad.png" alt="Logo" class="logo-image">
+        </div>
+        <h2>MyFitnessTracker</h2>
+        <div class="right-aligned">
+          <button mat-button>{{ 'header.register' | translate }}</button>
+          <button mat-button>{{ 'header.login' | translate }}</button>
+          <button mat-button [matMenuTriggerFor]="menu">{{ 'header.languages.chooseLanguage' | translate }}</button>
+          <mat-menu #menu>
+            <button mat-menu-item (click)="this.changeLanguage('en')">{{ 'header.languages.english' | translate }}</button>
+            <button mat-menu-item (click)="this.changeLanguage('fr')">{{ 'header.languages.french' | translate }}</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
 </mat-toolbar>
+
